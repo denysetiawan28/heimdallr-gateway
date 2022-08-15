@@ -1,0 +1,38 @@
+server:
+  port: 9000
+
+zuul:
+ sensitiveHeaders: Cookie,Set-Cookie
+ add-proxy-headers: true
+ host:
+  socket-timeout-millis: 30000
+ routes:
+  #auth purpose
+  #loginV1:
+  #  path: /v1/pub/sec/login/**
+  #  url: http://valkyrie-service:9001/oauth/token
+  #logoutV1:
+  #  path: /v1/pub/sec/logout/**
+  #  url: http://valkyrie-service:9001/oauth/revoke_token
+  #checkTokenV1:
+  #  path: /v1/pub/sec/check/**
+  #  url: http://valkyrie-service:9001/oauth/check_token
+  #routing public
+  analyticPubV1:
+    path: /pub/eins/v1/**
+    url: http://einstein-service:9001/api/v1/
+  #routing private
+  #valkyriePrivV1:
+  #  path: /priv/v/acc/**
+  #  url: http://valkyrie-service:9001/api/prv/acc/
+ribbon:
+  eureka:
+    enable: false
+
+security:
+  oauth2:
+    server:
+      clientId: 'heimdallr'
+      clientSecret: 'H3imd4llr'
+      serverName: valkyrie
+      serverCheckTokenUri: http://localhost:9000/oauth/check_token
