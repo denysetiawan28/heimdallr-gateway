@@ -20,7 +20,7 @@ zuul:
   #routing public
   analyticPubV1:
     path: /pub/eins/v1/**
-    url: http://einstein-service:9001/api/v1/
+    url: http://einstein-service:9090/api/v1/
   #routing private
   #valkyriePrivV1:
   #  path: /priv/v/acc/**
