@@ -1,11 +1,13 @@
 server:
   port: 9000
-
 zuul:
  sensitiveHeaders: Cookie,Set-Cookie
  add-proxy-headers: true
+ include-debug-header: true
+ debug:
+  request: true
  host:
-  socket-timeout-millis: 30000
+  socket-timeout-millis: 300000 #5 minutes
  routes:
   #auth purpose
   #loginV1:
@@ -21,6 +23,9 @@ zuul:
   analyticPubV1:
     path: /pub/eins/v1/**
     url: http://einstein-service:9090/api/v1/
+  #debugPubV1:
+  #  path: /pub/debug/**
+  #  url: https://google.co.id/
   #routing private
   #valkyriePrivV1:
   #  path: /priv/v/acc/**
@@ -28,6 +33,12 @@ zuul:
 ribbon:
   eureka:
     enable: false
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          netflix: debug
 
 security:
   oauth2:
