@@ -21,8 +21,8 @@ zuul:
   #  url: http://valkyrie-service:9001/oauth/check_token
   #routing public
   analyticPubV1:
-    path: /pub/eins/v1/**
-    url: http://einstein-service:9090/api/v1/
+    path: /pub/eins/**
+    url: http://einstein-service:9090/
   #debugPubV1:
   #  path: /pub/debug/**
   #  url: https://google.co.id/

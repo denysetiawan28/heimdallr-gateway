@@ -7,10 +7,10 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - './be:/heimdallr/'
+      - 'vol-heimdallr-gw:/app/heimdallr/'
     ports:
-      - 9080:9080
+      - 9000:9000
     network_mode: titipaja-net
 volumes:
-  data:
+  vol-heimdallr-gw:
     external: true
